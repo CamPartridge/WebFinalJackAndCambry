@@ -3,3 +3,21 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  section(class="signup")
+   h1 Register
+        form(action="/register", method="POST")
+            label Username:
+            input(type="text", name='username', placholder="username" require)
+            br
+            label Password:
+            input(type="text", name='password', placholder="password" require)
+            br
+            label Age: 
+            input(type="number", name='age', placholder="age" require)
+            br
+            
+
+            input(type="submit", value="submit" class="form-submit-button")
+        div(class="loginButton")
+            p Already a User?
+            a(href="/sign_in") Sign in Here
