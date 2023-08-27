@@ -15,7 +15,29 @@ block content
             label Age: 
             input(type="number", name='age', placholder="age" require)
             br
-            
+            label Where do you keep your will to live?
+            select(type="select", name="where_will", placeholder="Your Answer?", id='where_will')
+              label(for="Answers") Answers 
+                option(value=1) In a jar
+                option(value=2) My back pocket 
+                option(value=3) My parents took it 
+                option(value=4) I lost it 
+            br
+            label When was the last time you had the will to live?
+            select(type="select", name="when_will", placeholder="Your Answer?", id='when_will')
+              label(for="Answers") Answers 
+                option(value=1) Have it now
+                option(value=2) More than a week ago
+                option(value=3) Sometime last month
+                option(value=4) I forgor
+            br
+            label When was the last time you touched grass?
+            select(type="select", name="grass", placeholder="Your Answer?", id='grass')
+              label(for="Answers") Answers 
+                option(value=1) Today
+                option(value=2) Last week
+                option(value=3) Last month
+                option(value=4) Never
 
             input(type="submit", value="submit" class="form-submit-button")
         div(class="loginButton")
