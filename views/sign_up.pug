@@ -4,7 +4,7 @@ block content
   h1= title
   section(class="signup")
    h1 Register
-        form(action="/sign_up", method="POST")
+        form(action="/signup", method="POST")
             label Username:
             input(type="text", name='username', placholder="username" require)
             br
@@ -42,6 +42,7 @@ block content
                 option(value=4) Never
 
             input(type="submit", value="Submit" class="btn btn-primary form-submit-button")
+
         div(class="loginButton")
             p Already a User?
-            a(class="btn btn-secondary" href="/signin") Sign in Here
+            a(class="btn btn-secondary" href="/sign_in") Sign in Here
