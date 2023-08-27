@@ -10,13 +10,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/', async function(req, res, next){
   console.log("hit")
-  // let username = await req.body.username
-  // let email = await req.body.email
-  // let password = await req.body.password
-  // let age = await req.body.age
-  // let where_will = await req.body.where_will
-  // let when_will = await req.body.when_will
-  // let grass = await req.body.grass
   
   var user = {
     username : await req.body.username,
@@ -28,7 +21,7 @@ router.post('/', async function(req, res, next){
     grass: await req.body.grass,
   }
   await dal.CreateUser(user)
-  
+  res.render('sign_up', { title: 'Sign Up' });
 })
 
 module.exports = router;
