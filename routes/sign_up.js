@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const dal = require("../data/userdata.mongo.js")
+const bcrypt = require('bcryptjs')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -14,7 +15,7 @@ router.post('/', async function(req, res, next){
   var user = {
     username : await req.body.username,
     email: await req.body.email,
-    password: await req.body.password,
+    password: await bcrypt.hash(req.body.password, 10),
     age: await req.body.age,
     where_will: await req.body.where_will,
     when_will: await req.body.when_will,
