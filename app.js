@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var session = require('express-session')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -8,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var signinRouter = require('./routes/sign_in');
 var signupRouter = require('./routes/sign_up');
+var signoutRouter = require('./routes/sign_out');
 var willtoliveRouter = require('./routes/will_to_live');
 var apiRouter = require('./routes/api');
 
@@ -27,6 +29,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/signin', signinRouter);
 app.use('/signup', signupRouter);
+app.use('/signout', signoutRouter);
 app.use('/willtolive', willtoliveRouter);
 app.use('/api', apiRouter);
 
@@ -35,7 +38,12 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-
+app.use(session({
+  secret: 'to live well',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}))
 
 // error handler
 app.use(function(err, req, res, next) {

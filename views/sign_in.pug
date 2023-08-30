@@ -2,4 +2,12 @@ extends layouts/layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  section(class="signup")
+    div(class="flex-container")
+      form(action="/signin", method="POST", class="input-form")
+          label Email
+          input(type="email", name='email', placholder="email" require)
+          label Password
+          input(type="text", name='username', placholder="username" require)
+          input(type="submit", value="Submit" class="btn btn-primary form-submit-button")
+          a(class="btn btn-secondary" href="/signup") Sign up

@@ -8,14 +8,12 @@ router.get('/', function(req, res, next) {
   res.render('sign_up', { title: 'Sign Up' });
 });
 
-
 router.post('/', async function(req, res, next){
-  console.log("hit")
   
   var user = {
     username : await req.body.username,
     email: await req.body.email,
-    password: await bcrypt.hash(req.body.password, 10),
+    password: bcrypt.hashSync(req.body.password, 10),
     age: await req.body.age,
     where_will: await req.body.where_will,
     when_will: await req.body.when_will,

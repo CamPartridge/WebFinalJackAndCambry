@@ -1,3 +1,33 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  }
+
+label, select {
+  display: block;
+  margin-top: 4px;
+}
+
+input {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-form {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.btn {
+  display: block;
 }

@@ -9,24 +9,32 @@ const GetClient = async () => {
 
 const executeQuery = async (query) => {
     const client = new MongoClient(uri);
+    let result
     try{
-        await query(client)
+        result = await query(client)
     } catch (err){
         console.log(err)
     } finally {
         await client.close()
+        return result
     }
 }
 
-const GetUserByUsername = async (callback, username) => {
-    executeQuery(async(client) =>{
-        const database = client.db('will_to_live')
-        const collection = database.collection('users')
-        const query = {username: username}
-        let userData = await collection.findOne(query)
+const GetUserByEmail = async (email) => {
+    let result = await executeQuery(async(client) =>{
+        const database = client.db('will_to_live');
+        const collection = database.collection('users');
+        const query = {email: email};
+        let userData = await collection.findOne(query);
+        
+        if (userData && userData.email === email) {
+            return userData;
+        } else {
+            return null;
+        }
+    });
 
-        callback(userData)
-    })
+    return result;
 }
 
 const GetUserByID = async (callback, id) => {
@@ -62,7 +70,7 @@ const UpdateUser = async (changedUser, username) => {
 }
 
 module.exports = {
-    GetUserByUsername: GetUserByUsername,
+    GetUserByEmail: GetUserByEmail,
     GetUserByID: GetUserByID,
     CreateUser: CreateUser,
     UpdateUser: UpdateUser
