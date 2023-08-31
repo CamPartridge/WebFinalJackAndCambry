@@ -1,14 +1,27 @@
 body {
   font: 14px sans-serif;
+  text-align: center;
 }
 
 h1 {
   text-align: center;
+  font-size: 10vw;
 }
 
 .flex-container {
+  font-size: 1.2vw;
   display: flex;
   justify-content: center;
+  text-align: center;
+  background-color: lightslategray;
+  margin-left: 35vw;
+  margin-right: 35vw;
+  padding: 5vw;
+  border-radius: 8px;
+  }
+
+  #homeflex {
+    background-color: white;
   }
 
 label, select {
@@ -20,6 +33,7 @@ input {
   display: block;
   justify-content: center;
   align-items: center;
+  margin-right: 0;
 }
 
 .input-form {
@@ -30,4 +44,32 @@ input {
 
 .btn {
   display: block;
+}
+
+.charts {
+  width: 60vw;
+  height: 40vw;
+  
+  align-content: center;
+}
+
+#missing {
+  font-size: 5vw;
+}
+
+
+
+.inputbox {
+  margin-left: 3.6vw;
+  margin-bottom: 1vw;
+  align-content: center;
+  width: 12vw;
+}
+
+.spacepls {
+  margin-bottom: 2vw;
+}
+
+#chartTitles {
+  font-size: 3vw;
 }

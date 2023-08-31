@@ -8,14 +8,18 @@ block content
     p Welcome #{username}
   else 
     p Not logged in
-  section(id='chartsGoHere')
-    div()
-      canvas(id="chart1")
-    div()
-      canvas(id="chart2")
-    div()
-      canvas(id="chart3")
-      p(id="stats1") #{chart1data}
-      p(id="stats2") #{chart2data}
-      p(id="stats3") #{chart3data}
+  div(class="flex-container", id="homeflex")
+    section(id='chartsGoHere')
+      div(class="charts")
+        label(id="chartTitles") Where do you keep your will to live?
+        canvas(id="chart1")
+      div(class="charts")
+        label(id="chartTitles") When was the last time you had the will to live?
+        canvas(id="chart2")
+      div(class="charts")
+        label(id="chartTitles") When was the last time you touched grass?
+        canvas(id="chart3")
+        p(id="stats1") #{chart1data}
+        p(id="stats2") #{chart2data}
+        p(id="stats3") #{chart3data}
 
