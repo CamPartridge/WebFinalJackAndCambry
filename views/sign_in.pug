@@ -1,7 +1,7 @@
 extends layouts/layout
 
 block content
-  h1= title
+  h1(id="titles")= title
   section(class="signup")
     div(class="flex-container")
       form(action="/signin", method="POST", class="input-form")

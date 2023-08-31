@@ -3,13 +3,13 @@ block contentscripts
   script(src="https://cdn.jsdelivr.net/npm/chart.js")
   script(type="text/javascript", src="javascripts/chart.js" defer)
 block content
-  h1= title
-  if isAuthenticated
-    p Welcome #{username}
-  else 
-    p Not logged in
+  h1(id="titles")= title
   div(class="flex-container", id="homeflex")
     section(id='chartsGoHere')
+      if isAuthenticated
+        p Welcome #{username}
+      else 
+        p Not logged in
       div(class="charts")
         label(id="chartTitles") Where do you keep your will to live?
         canvas(id="chart1")

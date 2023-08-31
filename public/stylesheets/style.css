@@ -13,11 +13,12 @@ h1 {
   display: flex;
   justify-content: center;
   text-align: center;
-  background-color: lightslategray;
-  margin-left: 35vw;
-  margin-right: 35vw;
+  background-color: rgb(153, 166, 180);
+  margin-left: 30vw;
+  margin-right: 30vw;
   padding: 5vw;
   border-radius: 8px;
+  margin-bottom: 5vw;
   }
 
   #homeflex {
@@ -63,7 +64,7 @@ input {
   margin-left: 3.6vw;
   margin-bottom: 1vw;
   align-content: center;
-  width: 12vw;
+  width: 18vw;
 }
 
 .spacepls {
@@ -72,4 +73,9 @@ input {
 
 #chartTitles {
   font-size: 3vw;
+}
+
+#titles {
+  font-size: 6vw;
+  margin-bottom: 3vw;
 }
