@@ -1,4 +1,5 @@
-const { MongoClient } = require('mongodb')
+const { MongoClient } = require('mongodb');
+const { use } = require('../routes');
 const uri = 'mongodb://localhost:2717'
 
 const GetClient = async () => {
@@ -37,16 +38,24 @@ const GetUserByEmail = async (email) => {
     return result;
 }
 
-const GetUserByID = async (callback, id) => {
-    executeQuery(async(client) => {
+const GetUserByID = async (id) => {
+    const client = new MongoClient(uri);
+    let userData
+    try{
         const database = client.db('will_to_live')
         const collection = database.collection('users')
         const query = {ID: id}
-        let userData = await collection.findOne(query)
+        userData = await collection.findOne(query)
+    } catch (err){
+        console.log(err)
+    } finally {
+        await client.close()
+        return userData
+    }
 
-        callback(userData)
-    })
-}
+     
+    }
+
 
 const CreateUser = async (newUser) => {
     executeQuery(async(client) => {
@@ -69,9 +78,26 @@ const UpdateUser = async (changedUser, username) => {
     })
 }
 
+const GetNumberOfUsers = async () => {
+    const client = new MongoClient(uri);
+    let num
+    try{
+        const database = client.db('will_to_live')
+        const collection = database.collection('users')
+        num = await collection.countDocuments()
+        return num
+    } catch (err){
+        console.log(err)
+    } finally {
+        await client.close()
+        return num
+    }
+}
+
 module.exports = {
     GetUserByEmail: GetUserByEmail,
     GetUserByID: GetUserByID,
     CreateUser: CreateUser,
-    UpdateUser: UpdateUser
+    UpdateUser: UpdateUser,
+    GetNumberOfUsers: GetNumberOfUsers
 }
