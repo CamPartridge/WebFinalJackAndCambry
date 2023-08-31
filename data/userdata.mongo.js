@@ -1,12 +1,12 @@
 const { MongoClient } = require('mongodb');
-const { use } = require('../routes');
+// const { use } = require('../routes');
 const uri = 'mongodb://localhost:2717'
 
-const GetClient = async () => {
-    const client = new MongoClient(uri);
-    await client.connect()
-    return client
-}
+// const GetClient = async () => {
+//     const client = new MongoClient(uri);
+//     await client.connect()
+//     return client
+// }
 
 const executeQuery = async (query) => {
     const client = new MongoClient(uri);
