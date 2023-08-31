@@ -3,46 +3,37 @@ extends layouts/layout
 block content
   h1= title
   section(class="signup")
-   h1 Register
-        form(action="/signup", method="POST")
-            label Username:
-            input(type="text", name='username', placholder="username" require)
-            br
-            label Email:
-            input(type="email", name='email', placholder="email" require)
-            br
-            label Password:
-            input(type="password", name='password', placholder="password" require)
-            br
-            label Age: 
-            input(type="number", name='age', placholder="age" require)
-            br
-            label Where do you keep your will to live?
-            select(type="select", name="where_will", placeholder="where_will", id='where_will')
-              label(for="Answers") Answers 
-                option(value=1) In a jar
-                option(value=2) My back pocket 
-                option(value=3) My parents took it 
-                option(value=4) I lost it 
-            br
-            label When was the last time you had the will to live?
-            select(type="select", name="when_will", placeholder="when_will", id='when_will')
-              label(for="Answers") Answers 
-                option(value=1) Have it now
-                option(value=2) More than a week ago
-                option(value=3) Sometime last month
-                option(value=4) I forgor
-            br
-            label When was the last time you touched grass?
-            select(type="select", name="grass", placeholder="grass", id='grass')
-              label(for="Answers") Answers 
-                option(value=1) Today
-                option(value=2) Last week
-                option(value=3) Last month
-                option(value=4) Never
-
-            input(type="submit", value="Submit" class="btn btn-primary form-submit-button")
-
-        div(class="loginButton")
-            p Already a User?
-            a(class="btn btn-secondary" href="/sign_in") Sign in Here
+    div(class="flex-container")
+      form(action="/signup", method="POST", class="input-form")
+          label Username:
+          input(type="text", name='username', placholder="username" require)
+          label Email:
+          input(type="email", name='email', placholder="email" require)
+          label Password:
+          input(type="password", name='password', placholder="password" require)
+          label Age: 
+          input(type="number", name='age', placholder="age" require)
+          label Where do you keep your will to live?
+          select(type="select", name="where_will", placeholder="where_will", id='where_will')
+            label(for="Answers") Answers 
+              option(value=1) In a jar
+              option(value=2) My back pocket 
+              option(value=3) My parents took it 
+              option(value=4) I lost it 
+          label When was the last time you had the will to live?
+          select(type="select", name="when_will", placeholder="when_will", id='when_will')
+            label(for="Answers") Answers 
+              option(value=1) Have it now
+              option(value=2) More than a week ago
+              option(value=3) Sometime last month
+              option(value=4) I forgor
+          label When was the last time you touched grass?
+          select(type="select", name="grass", placeholder="grass", id='grass')
+            label(for="Answers") Answers 
+              option(value=1) Today
+              option(value=2) Last week
+              option(value=3) Last month
+              option(value=4) Never
+          input(type="submit", value="Submit" class="btn btn-primary form-submit-button")
+          p Already have an account?
+          a(class="btn btn-secondary" href="/signin") Sign in

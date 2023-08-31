@@ -8,7 +8,7 @@ router.get('/', async function(req, res, next) {
   let chart1data = await getChart1data(numOfUsers)
   let chart2data = await getChart2data(numOfUsers)
   let chart3data = await getChart3data(numOfUsers)
-  res.render('index', {title:"Willingly living", chart1data:chart1data,chart2data:chart2data, chart3data:chart3data});
+  res.render('index', {title:"Willingly living", username: 'testusername', chart1data:chart1data,chart2data:chart2data, chart3data:chart3data});
   
 });
 
