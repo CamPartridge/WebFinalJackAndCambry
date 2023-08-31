@@ -1,5 +1,17 @@
 extends layouts/layout
-
+block contentscripts
+  script(src="https://cdn.jsdelivr.net/npm/chart.js")
+  script(type="text/javascript", src="javascripts/chart.js" defer)
 block content
   h1= title
   p Welcome to #{title}
+    section(id='chartsGoHere')
+      div()
+        canvas(id="chart1")
+      div()
+        canvas(id="chart2")
+      div()
+        canvas(id="chart3")
+        p(id="stats1") #{chart1data}
+        p(id="stats2") #{chart2data}
+        p(id="stats3") #{chart3data}
