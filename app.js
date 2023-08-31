@@ -25,6 +25,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: 'to-live-well',
+  resave: false,
+  saveUninitialized: true,
+}))
+
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isAuthenticated || false;
+  next();
+})
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/signin', signinRouter);
@@ -37,13 +48,6 @@ app.use('/api', apiRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-app.use(session({
-  secret: 'to live well',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
-}))
 
 // error handler
 app.use(function(err, req, res, next) {
